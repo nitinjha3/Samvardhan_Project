@@ -29,7 +29,7 @@
 </head>
 <body>
      <!-- navbar -->
-     <div class="container-fluid p-0">
+     <div class="container-fluid p-1">
         <!-- first child -->
         <nav class="navbar navbar-expand-lg navbar-light bg-info">
             <div class="container-fluid p-0">
