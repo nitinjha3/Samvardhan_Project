@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +17,7 @@
      <style>
         .admin_image{
     width:100px;
-    object-fit:contain;
+    object-fit:contain; 
 }
 .footer{
     position: absolute;
