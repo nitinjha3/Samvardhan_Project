@@ -4,7 +4,7 @@ if(isset($_POST['insert_cat'])){
     $category_title=$_POST['cat_tiltle'];
 
     // select data from database
-    $select_query="select * from `categories` where category_title='$category_title'";
+    $select_query="select * from `categorie` where category_title='$category_title'";
     $result_select=mysqli_query($conn,$select_query);
     $number_row=mysqli_num_rows( $result_select);
     if($number_row>0)
@@ -12,7 +12,7 @@ if(isset($_POST['insert_cat'])){
         echo "<script>alert('This category is already present')</script>";
     }
     else{
-        $insert_query="insert into `categories` (category_title) values ('$category_title')";
+        $insert_query="insert into `categorie` (category_title) values ('$category_title')";
         $result=mysqli_query($conn,$insert_query);
         if($result)
         {

@@ -1,3 +1,10 @@
+<!-- connect to database -->
+<?php
+include('includes/connect.php');
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -143,6 +150,24 @@
       <li class="nav-items bg-info">
         <a href="#" class="nav-link text-light"><h4>categories</h4></a>
       </li>
+      <?php
+      $select_categories="Select * from `categorie`";
+      $result_categories=mysqli_query($conn,$select_categories);
+
+      while($row_data=mysqli_fetch_assoc($result_categories))
+      {
+        $category_title=$row_data['category_title'];
+        $category_id=$row_data['category_id'];
+
+        echo "<li class='nav-items'>
+        <a href='index.php?category=$category_id' class='nav-link text-light'>$category_title</a>
+        </li>";
+      }
+
+
+      ?>
+
+
     </ul>
 
   </div>
