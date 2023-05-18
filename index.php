@@ -1,7 +1,7 @@
 <!-- connect to database -->
 <?php
 include('includes/connect.php');
-
+include('functions/common_function.php');
 ?>
 
 
@@ -12,13 +12,9 @@ include('includes/connect.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samvardhan</title>
-    <!--Bootstrap Css link-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-     <!--font awesome_link -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-     <!--css file -->
-     <link rel="stylesheet" href="style.css">
+   <?php
+  include('functions\common_links.php');
+   ?>
 </head>
 <body>
     <!--navbar -->
@@ -84,42 +80,8 @@ include('includes/connect.php');
     <div class="row">
       <!-- fetching Products from database-->
       <?php
-        $selct_query="select * from `products`";
-        $result_query=mysqli_query($conn,$selct_query);
-        // $row=mysqli_fetch_assoc($result_query);
-        // echo $row['product_title'];
-        while($row=mysqli_fetch_assoc($result_query))
-        {
-          $product_title=$row['product_title'];
-          $product_description=$row['product_description'];
-          $product_keywords=$row['product_keywords'];
-          $category_id=$row['category_id'];
-          $product_image1=$row['product_image1'];
-          $product_price=$row['product_price'];
-
-          echo "<div class='col-md-4 mb-2'>
-          <div class='card'>
-            <img src='./admin_area/product_images/$product_image1'class='card-img-top' alt='product_title'>
-            <div class='card-body'>
-               <h5 class='card-title'>$product_title</h5>
-               <p class='card-text'>$product_description</p>
-               <a href='#' class='btn btn-primary'>Add to Cart</a>
-            </div>
-          </div>
-          </div>";
-        }
-
+      getProducts();
       ?>
-      <!-- <div class="col-md-4 mb-2">
-      <div class="card">
-        <img src="./img/soap.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-           <h5 class="card-title">Card title</h5>
-           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-           <a href="#" class="btn btn-primary">Add to Cart</a>
-        </div>
-      </div>
-      </div>-->
     </div>
   </div> 
 
@@ -130,25 +92,9 @@ include('includes/connect.php');
         <a href="#" class="nav-link text-light"><h4>categories</h4></a>
       </li>
       <?php
-      $select_categories="Select * from `categorie`";
-      $result_categories=mysqli_query($conn,$select_categories);
-
-      while($row_data=mysqli_fetch_assoc($result_categories))
-      {
-        $category_title=$row_data['category_title'];
-        $category_id=$row_data['category_id'];
-
-        echo "<li class='nav-items'>
-        <a href='index.php?category=$category_id' class='nav-link text-light'>$category_title</a>
-        </li>";
-      }
-
-
+      fetchCategories();
       ?>
-
-
     </ul>
-
   </div>
 </div>
 
