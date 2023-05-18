@@ -1,7 +1,50 @@
 <?php
   include('../includes/connect.php');
 
+  if(isset($_POST['insert_product'])){
+  $product_title=$_POST['product_title'];
+  $product_description=$_POST['product_description'];
+  $product_keywords=$_POST['product_keywords'];
+  $product_categories=$_POST['product_categories'];
+//   accessing images
+  $product_image1=$_FILES['product_image1']['name'];
+  $product_image2=$_FILES['product_image2']['name'];
+  $product_image3=$_FILES['product_image3']['name'];
+
+  //accesing tmp name
+  $temp_image1=$_FILES['product_image1']['tmp_name'];
+  $temp_image2=$_FILES['product_image2']['tmp_name'];
+  $temp_image3=$_FILES['product_image3']['tmp_name'];  
+
+  $product_price=$_POST['product_price'];
+
+  //checking empty condition
+  if($product_title=='' or $product_description=='' or $product_keywords=='' or $product_image1==''
+  or $product_image2=='' or $product_image3=='' or $product_price=='')
+  {
+    echo "<script>alert('please fill all the available feilds')</script>";
+    exit();
+  }
+  else{
+    move_uploaded_file($temp_image1,"./product_images/$product_image1");
+    move_uploaded_file($temp_image2,"./product_images/$product_image2");
+    move_uploaded_file($temp_image3,"./product_images/$product_image3");
+
+    $insert_products="INSERT INTO `products` (product_title,product_description,product_keywords,category_id,
+    product_image1,product_image2,product_image3,product_price) 
+    VALUES ('$product_title','$product_description','$product_keywords','$product_categories','$product_image1',
+    '$product_image2','$product_image2','$product_price')";
+    $result_query=mysqli_query($conn,$insert_products);
+    if($result_query)
+    {
+        echo "<script>alert('Succesfully inserted the products')</script>";
+    }
+  }
+
+}
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +86,7 @@
             </div>
             <!-- Caregories -->
             <div class="form-outline mb-4">
-               <select name="product-categories" id="" class="form-select">
+               <select name="product_categories" id="" class="form-select">
                 <option value="">Select  Category</option>
                 <!-- selecting categories from the database -->
                 <?php
