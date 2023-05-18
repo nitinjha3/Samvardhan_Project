@@ -20,7 +20,7 @@
 
   //checking empty condition
   if($product_title=='' or $product_description=='' or $product_keywords=='' or $product_image1==''
-  or $product_image2=='' or $product_image3=='' or $product_price=='')
+  or $product_image2=='' or $product_image3=='' or $product_price=='' )
   {
     echo "<script>alert('please fill all the available feilds')</script>";
     exit();
@@ -85,9 +85,9 @@
                 placeholder="Enter Product Keyword" autocomplete="off" required="required">
             </div>
             <!-- Caregories -->
-            <div class="form-outline mb-4">
+            <div class="form-outline mb-4  ">
                <select name="product_categories" id="" class="form-select">
-                <option value="">Select  Category</option>
+                <option value="">Select Category</option>
                 <!-- selecting categories from the database -->
                 <?php
                  $select_query="select * from `categorie`";
@@ -96,7 +96,8 @@
                  {
                     $category_title=$row['category_title'];
                     $category_id=$row['category_id'];
-                    echo "<option value='$caetgory_id'>$category_title</option>";
+                    echo "<option value='$category_id'>$category_title</option>";
+                    
                  }
 
                 ?>

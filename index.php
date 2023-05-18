@@ -78,72 +78,51 @@ include('includes/connect.php');
 </div>
 
 <!--fourth Child -->
-<div class="row">
+<div class="row px-3">
   <div class="col-md-10">
     <!-- products -->
     <div class="row">
-      <div class="col-md-4 mb-2">
+      <!-- fetching Products from database-->
+      <?php
+        $selct_query="select * from `products`";
+        $result_query=mysqli_query($conn,$selct_query);
+        // $row=mysqli_fetch_assoc($result_query);
+        // echo $row['product_title'];
+        while($row=mysqli_fetch_assoc($result_query))
+        {
+          $product_title=$row['product_title'];
+          $product_description=$row['product_description'];
+          $product_keywords=$row['product_keywords'];
+          $category_id=$row['category_id'];
+          $product_image1=$row['product_image1'];
+          $product_price=$row['product_price'];
+
+          echo "<div class='col-md-4 mb-2'>
+          <div class='card'>
+            <img src='./admin_area/product_images/$product_image1'class='card-img-top' alt='product_title'>
+            <div class='card-body'>
+               <h5 class='card-title'>$product_title</h5>
+               <p class='card-text'>$product_description</p>
+               <a href='#' class='btn btn-primary'>Add to Cart</a>
+            </div>
+          </div>
+          </div>";
+        }
+
+      ?>
+      <!-- <div class="col-md-4 mb-2">
       <div class="card">
-  <img src="./img/soap.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Add to Cart</a>
-  </div>
-</div>
-  </div>
-      <div class="col-md-4 mb-2">
-      <div class="card">
-      <img src="img\download.jpeg"  class="card-img-top" alt="...">
-      <div class="card-body">
-      <h5 class="card-title">Beads</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Add to Cart</a>
+        <img src="./img/soap.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+           <h5 class="card-title">Card title</h5>
+           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+           <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
       </div>
-      </div>
-  </div>
-  <div class="col-md-4">
-      <div class="card">
-      <img src="./img/brush.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Add to Cart</a>
-     </div>
-     </div>
-  </div>
-  <div class="col-md-4">
-      <div class="card">
-      <img src="./img/colgate.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Add to Cart</a>
-     </div>
-     </div>
-  </div>
-  <div class="col-md-4">
-      <div class="card">
-      <img src="img\mat.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Add to Cart</a>
-     </div>
-     </div>
-  </div>
-  <div class="col-md-4">
-      <div class="card">
-      <img src="./img/surf.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Add to Cart</a>
-     </div>
-     </div>
-  </div>
-  </div>
-</div>
+      </div>-->
+    </div>
+  </div> 
+
   <div class="col-md-2 bg-dark p-0">
     <!-- sidenav -->
     <ul class="navbar-nav me-auto text-center">
