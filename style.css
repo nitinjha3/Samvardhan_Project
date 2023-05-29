@@ -14,3 +14,9 @@
     height: 200px;
     object-fit: contain;
 }
+.bottom {
+    position: absolute; /* Set div position to relative */
+  }
+  .parent {
+    position: relative;
+  }

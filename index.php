@@ -3,8 +3,6 @@
 include('includes/connect.php');
 include('functions/common_function.php');
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +16,7 @@ include('functions/common_function.php');
 </head>
 <body>
     <!--navbar -->
-    <div class="container-fluid p-0">
+    <div class="container-fluid p-0 absolute">
          <!--first child -->
          <nav class="navbar navbar-expand-lg navbar-light bg-info">
   <div class="container-fluid">
@@ -81,6 +79,7 @@ include('functions/common_function.php');
       <!-- fetching Products from database-->
       <?php
       getProducts();
+      unique_categories();
       ?>
     </div>
   </div> 
@@ -93,16 +92,14 @@ include('functions/common_function.php');
       </li>
       <?php
       fetchCategories();
+      
       ?>
     </ul>
   </div>
 </div>
 
-
-
-
 <!-- footer-->
-<div class="bg-info p-3 text-center">
+<div class="bg-info p-3 text-center  bottom-navbar">
   <p>All rights reserved. Developed by VOICE HALDIA</p>
 </div>
 </div>
