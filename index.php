@@ -80,6 +80,8 @@ include('functions/common_function.php');
       <?php
       getProducts();
       unique_categories();
+      $ip = getIPAddress();  
+echo 'User Real IP Address - '.$ip;  
       ?>
     </div>
   </div> 
