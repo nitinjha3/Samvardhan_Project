@@ -78,7 +78,7 @@ include('functions/common_function.php');
     <div class="row">
       <!-- fetching Products from database-->
       <?php
-      getProducts();
+      Get_allProducts();
       unique_categories();
       ?>
     </div>
