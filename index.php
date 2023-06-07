@@ -44,7 +44,7 @@ include('functions/common_function.php');
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="#">Total Price: 100/-</a>
+          <a class="nav-link" href="#">Total Price: <?php total_cart_price();?>/-</a>
         </li>
         
       </ul>
