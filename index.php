@@ -80,8 +80,8 @@ include('functions/common_function.php');
       <?php
       getProducts();
       unique_categories();
-      $ip = getIPAddress();  
-echo 'User Real IP Address - '.$ip;  
+//       $ip = getIPAddress();  
+// echo 'User Real IP Address - '.$ip;  
       ?>
     </div>
   </div> 
@@ -99,6 +99,11 @@ echo 'User Real IP Address - '.$ip;
     </ul>
   </div>
 </div>
+
+<!-- calling add to cart function -->
+<?php
+Add_to_cart();
+?>
 
 <!-- include footer -->
 <?php
