@@ -9,7 +9,7 @@ include('functions/common_function.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cart_details</title>
+    <title>CART</title>
    <?php
   include('functions\common_links.php');
    ?>
@@ -81,22 +81,49 @@ include('functions/common_function.php');
                 </tr>
             </thead>
             <tbody>
+                <!-- php code to display dynamic data -->
+                <?php
+                     global $conn;
+                     $total_price=0;
+                     $get_ip = getIPAddress();
+                     $cart_query="select * from  `cart_details` where ip_address='$get_ip'";
+                     $result=mysqli_query($conn,$cart_query);
+                     while($row=mysqli_fetch_array($result))
+                     {
+                       $product_id=$row['product_id'];
+                       $select_products="select * from  `products` where product_id='$product_id'";
+                       $result_products=mysqli_query($conn,$select_products);
+                       while($row_price=mysqli_fetch_array($result_products))
+                       {
+                         $product_price=array($row_price['product_price']);
+                         $product_title=$row_price['product_title'];
+                         $product_image1=$row_price['product_image1'];
+                         $price=$row_price['product_price'];
+                         $product_value=array_sum($product_price);
+                         $total_price+=$product_value;
+                       
+                ?>
                 <tr>
-                    <td>Soap</td>
-                    <td><img src="img\beads1.jpeg" alt=""></td>
-                    <td><input type="text" name="" id=""></td>
-                    <td>500</td>
+                    <td><?php echo $product_title ?></td>
+                    <td><img src="img\<?php echo $product_image1 ?>" alt="" class="cart_img"></td>
+                    <td><input type="text" name="" id="" class="form-input w-50"></td>
+                    <td><?php echo $price ?>/-</td>
                     <td><input type="checkbox" name="" id=""></td>
                     <td>
-                        <p>Update</p>
-                        <p>Remove</p>
+                       <button class="bg-info px-3 py-2 mx-3  border-0">Update</button>
+                       <button class="bg-info px-3 py-2 mx-3  border-0">Remove</button>
                     </td>
                 </tr>
+                <?php
+                }
+                      
+            } 
+            ?>
             </tbody>
         </table>
         <!-- subtotal -->
         <div class="d-flex mb-5">
-            <h4 class="px-4">SubTotal :  <strong class="text-info" > 7000/-</strong></h4>
+            <h4 class="px-4">SubTotal :  <strong class="text-info" > <?php echo $total_price ?>/-</strong></h4>
             <a href="index.php"><button class="bg-info px-3 py-2 mx-3  border-0">Continue Shopping</button></a>
             <a href="#"><button class="bg-secondary px-3 py-2 border-0 text-light">Checkout</button></a>
         </div>
