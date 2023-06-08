@@ -9,7 +9,7 @@ include('functions/common_function.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samvardhan</title>
+    <title>cart_details</title>
    <?php
   include('functions\common_links.php');
    ?>
@@ -42,16 +42,10 @@ include('functions/common_function.php');
           <a class="nav-link" href="cart.php"><i class="fa-sharp fa-solid fa-cart-shopping"></i><sup><?php Cart_number(); ?>
         </sup></a>
         </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" href="#">Total Price: <?php total_cart_price();?>/-</a>
-        </li>
+       
         
       </ul>
-      <form class="d-flex" action="search_product.php" method="get">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_data">
-        <input type="submit" value="search" class="btn btn-outline-light" name="search_data_products">
-      </form>
+      
     </div>
   </div>
 </nav>
@@ -72,46 +66,46 @@ include('functions/common_function.php');
   <p class="text-center">Serving devotees...Serving Lord...</p>
 </div>
 
-<!--fourth Child -->
-<div class="row px-3">
-  <div class="col-md-10">
-    <!-- products -->
+<!-- fourth child table -->
+<div class="container">
     <div class="row">
-      <!-- fetching Products from database-->
-      <?php
-      getProducts();
-      unique_categories();
-//       $ip = getIPAddress();  
-// echo 'User Real IP Address - '.$ip;  
-      ?>
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr>
+                    <th>Product Title</th>
+                    <th>Product Image</th>
+                    <th>Quantity</th>
+                    <th>Total Price</th>
+                    <th>Remove</th>
+                    <th>Operations</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Soap</td>
+                    <td><img src="img\beads1.jpeg" alt=""></td>
+                    <td><input type="text" name="" id=""></td>
+                    <td>500</td>
+                    <td><input type="checkbox" name="" id=""></td>
+                    <td>
+                        <p>Update</p>
+                        <p>Remove</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- subtotal -->
+        <div class="d-flex mb-5">
+            <h4 class="px-4">SubTotal :  <strong class="text-info" > 7000/-</strong></h4>
+            <a href="index.php"><button class="bg-info px-3 py-2 mx-3  border-0">Continue Shopping</button></a>
+            <a href="#"><button class="bg-secondary px-3 py-2 border-0 text-light">Checkout</button></a>
+        </div>
     </div>
-  </div> 
-
-  <div class="col-md-2 bg-dark p-0">
-    <!-- sidenav -->
-    <ul class="navbar-nav me-auto text-center">
-      <li class="nav-items bg-info">
-        <a href="#" class="nav-link text-light"><h4>categories</h4></a>
-      </li>
-      <?php
-      fetchCategories();
-      
-      ?>
-    </ul>
-  </div>
 </div>
 
-<!-- calling add to cart function -->
-<?php
-Add_to_cart();
-?>
-
-<!-- include footer -->
 <?php
   include("./includes/footer.php")
 ?>
-</div>
-
  <!-- Bootstsrap js link -->
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
  
