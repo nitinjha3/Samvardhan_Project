@@ -43,7 +43,7 @@ include('functions/common_function.php');
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="#">Total Price: <?php total_cart_price();?>/-</a>
+          <a class="nav-link" href="cart.php">Total Price: <?php echo total_cart_price();?>/-</a>
         </li>
         
       </ul>
@@ -105,6 +105,7 @@ include('functions/common_function.php');
 
  <!-- Bootstsrap js link -->
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
  
 </body>
 </html>

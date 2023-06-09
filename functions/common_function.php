@@ -241,18 +241,25 @@ function total_cart_price(){
   while($row=mysqli_fetch_array($result))
   {
     $product_id=$row['product_id'];
+    $quantity=$row['quantity'];
     $select_products="select * from  `products` where product_id='$product_id'";
     $result_products=mysqli_query($conn,$select_products);
-    while($row_price=mysqli_fetch_array($result_products))
+    while($row_price=mysqli_fetch_assoc($result_products))
     {
-      $product_price=array($row_price['product_price']);
-      $product_value=array_sum($product_price);
-      $total_price+=$product_value;
+      $product_price=$row_price['product_price'];
+      // $product_value=array_sum($product_price);
+      $total_price+=$product_price*$quantity;
     }
    
   }
-  echo $total_price;
+  return  $total_price;
+  
+}
 
+// updating items in the cart
+function update_cart()
+{
+  
 }
 
 ?>
