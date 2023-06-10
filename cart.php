@@ -56,9 +56,9 @@ include('functions/common_function.php');
           <a class="nav-link active" aria-current="page" href="#">Welcome Guest</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Login</a>
+          <a class="nav-link active" aria-current="page" href="./users_area/user_login.php">Login</a>
         </li>
-  </ul>
+  </ul> 
 </nav>
 <!-- third Child -->
 <div class="bg-light">
@@ -113,7 +113,7 @@ include('functions/common_function.php');
               echo "<script>window.open('index.php','_self')</script>";
             }
             if(isset($_POST['checkout'])){
-              echo "<script>window.open('checkout.php','_self')</script>";
+              echo "<script>window.open('./users_area/checkout.php','_self')</script>";
             }
             // End of handling all post requests
 

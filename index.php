@@ -1,7 +1,7 @@
 <!-- connect to database -->
 <?php
-include('includes/connect.php');
-include('functions/common_function.php');
+include('./includes/connect.php');
+include('./functions/common_function.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,7 +62,7 @@ include('functions/common_function.php');
           <a class="nav-link active" aria-current="page" href="#">Welcome Guest</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Login</a>
+          <a class="nav-link active" aria-current="page" href="./users_area/user_login.php">Login</a>
         </li>
   </ul>
 </nav>

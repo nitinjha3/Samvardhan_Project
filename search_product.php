@@ -61,7 +61,7 @@ include('functions/common_function.php');
           <a class="nav-link active" aria-current="page" href="#">Welcome Guest</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Login</a>
+          <a class="nav-link active" aria-current="page" href="./users_area/user_login.php">Login</a>
         </li>
   </ul>
 </nav>

@@ -1,7 +1,7 @@
 <!-- connect to database -->
 <?php
-include('includes/connect.php');
-include('functions/common_function.php');
+ include('../includes/connect.php');
+//  include('../functions/common_function.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +11,7 @@ include('functions/common_function.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
    <?php
-  include('functions\common_links.php');
+  include('..\functions\common_links.php');
    ?>
 </head>
 <body>
@@ -20,31 +20,23 @@ include('functions/common_function.php');
          <!--first child -->
          <nav class="navbar navbar-expand-lg navbar-light bg-info">
   <div class="container-fluid">
-  <img src="./img/logo.jpg" class="logo">
+  <img src="../img/logo.jpg" class="logo">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+          <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="display_all.php">Products</a>
+          <a class="nav-link" href="./display_all.php">Products</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Register</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Contact</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="cart.php"><i class="fa-sharp fa-solid fa-cart-shopping"></i><sup><?php Cart_number(); ?>
-        </sup></a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" href="#">Total Price: <?php echo total_cart_price();?>/-</a>
         </li>
         
       </ul>
@@ -78,10 +70,10 @@ include('functions/common_function.php');
         <div class="row">
             <?php
             if(!isset($_SESSION['username'])){
-                include('users_area/user_login.php');
+                include('user_login.php');
             }
             else{
-                include('payment.php');
+                include('./payment.php');
             }
             ?>
         </div>
@@ -90,7 +82,7 @@ include('functions/common_function.php');
 
 
 <?php
-  include("./includes/footer.php")
+  include("../includes/footer.php")
 ?>
 </div>
 
