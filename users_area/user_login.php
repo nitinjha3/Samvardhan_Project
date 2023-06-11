@@ -12,6 +12,11 @@
 
   <!--css file -->
   <link rel="stylesheet" href="style.css">
+  <style>
+    body{
+        overflow-x:hidden;
+    }
+  </style>
 </head>
 <body>
     <div class="container-fluid my-3">
@@ -28,7 +33,7 @@
                      <!-- Password -->
                      <div class="form-outline mb-4">
                         <label for="user_password" class="form-label">Password</label>
-                        <input type="text" id="user_password" class="form-control" placeholder="Enter Your Password"
+                        <input type="password" id="user_password" class="form-control" placeholder="Enter Your Password"
                          autocomplete="off" required="required" name="user_password">
                     </div>
                     
@@ -43,3 +48,29 @@
     
 </body>
 </html> 
+
+<?php
+  if(isset($_POST['user_login']))
+  {
+     $user_username=$_POST['user_username'];
+     $user_password=$_POST['user_password'];
+
+     $selct_query="select * from `user_table` where username='$user_username'";
+     $result_login=mysqli_query($conn,$selct_query);
+     $row=mysqli_num_rows($result_login);
+     $row_data=mysqli_fetch_assoc($result_login);
+     if($row>0)
+     {
+          if(password_verify($user_password,$row_data['user_password'])){
+            echo "<script>alert('Login Successful')</script>";
+          }else{
+            echo "<script>alert('Wrong Password')</script>";
+          }
+     }else{
+        echo "<script>alert('Invalid Credentials')</script>";
+
+     }
+
+  }
+
+?>

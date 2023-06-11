@@ -178,8 +178,8 @@ include('functions/common_function.php');
         
     
         echo "<div class='container d-flex justify-content-center align-items-center'>
-        <button class='btn btn-primary text-center px-3 py-2 border-0 mx-3' type='submit' name='update_cart'>Update</button>
-        <button class='btn btn-primary text-center px-3 py-2 border-0 mx-3' type='submit' name='remove_cart'>Remove</button>
+        <button class='btn btn-primary text-center px-3 py-2 border-0 mx-3 my-3' type='submit' name='update_cart'>Update</button>
+        <button class='btn btn-primary text-center px-3 py-2 border-0 mx-3 my-3' type='submit' name='remove_cart'>Remove</button>
           </div>
         <!-- subtotal  -->
         <div class='d-flex mb-5'>
