@@ -1,3 +1,9 @@
+<!-- connect database -->
+<?php
+  include('../includes/connect.php');
+  include('../functions/common_function.php');
+  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,11 +65,27 @@
      $result_login=mysqli_query($conn,$selct_query);
      $row=mysqli_num_rows($result_login);
      $row_data=mysqli_fetch_assoc($result_login);
+     $user_ip=getIPAddress();
+
+    //  cart items
+    $selct_query_cart="select * from `cart_details` where ip_address='$user_ip'";
+     $result_login_cart=mysqli_query($conn,$selct_query_cart);
+     $row_count=mysqli_num_rows($result_login_cart);
      if($row>0)
      {
           if(password_verify($user_password,$row_data['user_password'])){
-            echo "<script>alert('Login Successful')</script>";
-          }else{
+            // echo "<script>alert('Login Successful')</script>";
+            if($row_count==0)
+            {
+                echo "<script>alert('Login Successful')</script>";
+                echo "<script>window.open('dashboard.php','_self')</script>";
+            }
+            else{
+                echo "<script>alert('Login Successful')</script>";
+                echo "<script>window.open('payment.php','_self')</script>";
+                
+            }
+            }else{
             echo "<script>alert('Wrong Password')</script>";
           }
      }else{
