@@ -2,6 +2,7 @@
 <?php
   include('../includes/connect.php');
   include('../functions/common_function.php');
+  session_start();
   ?>
 
 <!DOCTYPE html>
@@ -73,16 +74,19 @@
      $row_count=mysqli_num_rows($result_login_cart);
      if($row>0)
      {
+          $_SESSION['username']=$user_username;
           if(password_verify($user_password,$row_data['user_password'])){
             // echo "<script>alert('Login Successful')</script>";
             if($row_count==0)
             {
+                $_SESSION['username']=$user_username;
                 echo "<script>alert('Login Successful')</script>";
-                echo "<script>window.open('dashboard.php','_self')</script>";
+                echo "<script>window.open('../index.php','_self')</script>";
             }
             else{
+                $_SESSION['username']=$user_username;
                 echo "<script>alert('Login Successful')</script>";
-                echo "<script>window.open('payment.php','_self')</script>";
+                echo "<script>window.open('../index.php','_self')</script>";
                 
             }
             }else{

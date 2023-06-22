@@ -79,7 +79,7 @@
     {
         include('insert_categories.php');
     }
-    ?>
+    ?>  
 </div>
 
 
