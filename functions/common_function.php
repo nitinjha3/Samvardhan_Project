@@ -3,6 +3,7 @@
 // include('../includes/connect.php');
 
 //getting products
+session_start();
 function getProducts()
 {
     global $conn;

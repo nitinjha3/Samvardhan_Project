@@ -2,7 +2,7 @@
 <?php
   include('../includes/connect.php');
   include('../functions/common_function.php');
-  session_start();
+//   session_start();
   ?>
 
 <!DOCTYPE html>
@@ -86,7 +86,7 @@
             else{
                 $_SESSION['username']=$user_username;
                 echo "<script>alert('Login Successful')</script>";
-                echo "<script>window.open('../index.php','_self')</script>";
+                echo "<script>window.open('payment.php','_self')</script>";
                 
             }
             }else{

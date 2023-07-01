@@ -2,7 +2,7 @@
 <?php
 include('./includes/connect.php');
 include('./functions/common_function.php');
-session_start();
+// session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +69,7 @@ session_start();
        else{
         $name=$_SESSION['username'];
         echo " <li class='nav-item'>
-               <a class='nav-link active' aria-current='page' href='#'>Welcome".$name."</a>
+               <a class='nav-link active' aria-current='page' href='#'>Welcome ". $name."</a>
                </li>";
         // echo "hi";
        }
