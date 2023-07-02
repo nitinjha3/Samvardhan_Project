@@ -3,7 +3,11 @@
 // include('../includes/connect.php');
 
 //getting products
-session_start();
+if (session_status() !== PHP_SESSION_ACTIVE) {
+  session_start();
+}
+if (!function_exists('getProducts'))
+{
 function getProducts()
 {
     global $conn;
@@ -36,9 +40,12 @@ function getProducts()
     }
   }
 }
-
+}
+if (!function_exists('unique_categories'))
+{
 function unique_categories()
 {
+ 
   global $conn;
      // to check isset or not
     if(isset($_GET['category']))
@@ -75,7 +82,10 @@ function unique_categories()
     }
   }
 }
+}
 
+if (!function_exists('fetchCategories'))
+{
 function fetchCategories()
 {
   global $conn;
@@ -92,8 +102,11 @@ function fetchCategories()
     </li>";
   }
 }
+}
 
 // serach products 
+if (!function_exists('SearchProducts'))
+{
 function SearchProducts()
 {
     global $conn;
@@ -127,8 +140,11 @@ function SearchProducts()
     }
   }
 }
-
+}
 //getting all products
+
+if (!function_exists('Get_allProducts'))
+{
 function Get_allProducts()
 {
   global $conn;
@@ -161,9 +177,12 @@ function Get_allProducts()
  }
 }
 }
+}
 
 // get IP Address function
 
+if (!function_exists('getIPAddress'))
+{
 function getIPAddress() {  
   //whether ip is from the share internet  
    if(!empty($_SERVER['HTTP_CLIENT_IP'])) {  
@@ -179,11 +198,13 @@ function getIPAddress() {
    }  
    return $ip;  
 }  
+}
 // $ip = getIPAddress();  
 // echo 'User Real IP Address - '.$ip;  
 
-
 // Cart Function
+if (!function_exists('Add_to_cart'))
+{
 function Add_to_cart()
 {
   if(isset($_GET['add_to_cart']))
@@ -207,9 +228,11 @@ function Add_to_cart()
     }
   }
 }
+}
 
 // function to get cart item number
-
+if (!function_exists('Cart_number'))
+{
 function Cart_number()
 {
   if(isset($_GET['add_to_cart']))
@@ -230,9 +253,11 @@ function Cart_number()
     echo $count_items;
   
 }
+}
 
 // total cart price function
-
+if (!function_exists('total_cart_price'))
+{
 function total_cart_price(){
   global $conn;
   $total_price=0;
@@ -256,11 +281,15 @@ function total_cart_price(){
   return  $total_price;
   
 }
+}
 
 // updating items in the cart
+if (!function_exists('update_cart'))
+{
 function update_cart()
 {
   
+}
 }
 
 ?>
