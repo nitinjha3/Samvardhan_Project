@@ -1,11 +1,9 @@
+
 <?php
+  $con=mysqli_connect('localhost','root','','Samvardhan2');
+    if(!$con){
+        die(mysqli_error($con));
+    }
+    
 
-$conn=mysqli_connect('localhost','root','','samvardhan');
-
-if(!$conn)
-{
-    die(mysqli_error($conn));
-}
-
-
-?>
+    ?>
