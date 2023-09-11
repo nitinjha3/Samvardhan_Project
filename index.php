@@ -21,7 +21,7 @@ include_once('functions/auth.php');
 <body> 
   <!-- first child -->
     <div class="container-fluid p-0">
-        <nav class="navbar navbar-expand-lg bg-dark text-light" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg bg-info">
   <div class="container-fluid">
     <img src="./img/logo.jpg" class="logo">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,7 +33,7 @@ include_once('functions/auth.php');
           <a class="nav-link active" aria-current="page" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="display_all.php">Products</a>
+          <a class="nav-link" href="display_all.php">All Products</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="./users_area/profile.php">My Profile</a>
@@ -109,7 +109,7 @@ include_once('functions/auth.php');
 </div>
   <div class="col-md-2 bg-secondary p-0">
     <ul class="navbar-nav me-auto text-center ">
-      <li class="nav-item bg-info bg-dark text-light" data-bs-theme="dark">
+      <li class="nav-item bg-info text-light" data-bs-theme="dark">
         <a href="" class="nav-link text-light"><h4>Categories</h4> </a>
       </li>
       <?php
